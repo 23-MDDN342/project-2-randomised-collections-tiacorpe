@@ -3,6 +3,5 @@
 ## 2023 MDDN342 Assignment 2: Randomised Collections
 **This is where you talk about your project!**
 
->This starter code is just some simple faces being drawn. 
-
+Just updated the sketch.jpg. I think I will stick with the mask idea, even though it will be harder to create the exaggerated expressions that I want.
 
