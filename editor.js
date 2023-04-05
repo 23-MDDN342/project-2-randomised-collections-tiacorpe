@@ -43,10 +43,11 @@ function setup () {
   faceGuideCheckbox.parent('checkbox1Container');
 
   faceSelector = createSelect();
+  faceSelector.option('My Code');
   faceSelector.option('1');
   faceSelector.option('2');
   faceSelector.option('3');
-  faceSelector.value('1');
+  faceSelector.value('My Code');
   faceSelector.parent('selector1Container');
 }
 
@@ -97,6 +98,9 @@ function draw () {
   }
   if (mode == '3') {
     simplePurpleFace();
+  }
+  if (mode == 'My Code') {
+    faceMask();
   }
 
   pop();

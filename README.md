@@ -3,5 +3,4 @@
 ## 2023 MDDN342 Assignment 2: Randomised Collections
 **This is where you talk about your project!**
 
-Just updated the sketch.jpg. I think I will stick with the mask idea, even though it will be harder to create the exaggerated expressions that I want.
-
+Still in the early stages of figuring out the best way to make the shapes I need. To get this mask outline I user bezierPoint() curves, which definately achieved the shape I'm looking for. However, using this method isn't working well with fill(), so I may look for an alternative method that works better, or figure out another way to fill the shape.
