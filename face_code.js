@@ -44,12 +44,28 @@ function faceMask() {
   point(0, 0); // centre
 
   // Mask Curve(s)
-  // startPoint x,y | curvePoint x,y | curvePoint x,y | endPoint x,y
-  bezier(x1, y1, 0, -8, 0, -8, x2, y2); // top curve
-  bezier(x1, y1, -10, 0, -10, 0, x3, y3); // left curve
-  bezier(x2, y2, 10, 0, 10, 0, x5, y5); // right curve
-  bezier(x3, y3, -6.5, 9, -1, 10, x4, y4); // bottom left curve
-  bezier(x5, y5, 6.5, 9, 1, 10, x4, y4); // bottome right curve
+  beginShape();
+  vertex(-10, -10);
+  bezierVertex(0, -8, 0, -8, x2, y2); // TLeft to TRight
+  bezierVertex(x5, 1, x5, 1.75, x5, y5); // TRight to BRight *
+  bezierVertex(2, 10, 4, 10, x4, y4); // BRight to BMiddle %
+  bezierVertex(-2, 10, -4, 10, x3, y3); // BMiddle to BLeft %
+  bezierVertex(x1, 1, x1, 1.75, x1, y1); // BLeft to TLeft *
+  endShape();
+
+  // Eye(s)
+  strokeWeight(0.5);
+  beginShape();
+  vertex(1, -2);
+  bezierVertex(2, -7, 6, -7, 8, -7);
+  bezierVertex(4, -5, 2, -5, 1, -2)
+  endShape();
+
+  beginShape();
+  vertex(-1, -2);
+  bezierVertex(-2, -7, -6, -7, -8, -7);
+  bezierVertex(-4, -5, -2, -5, -1, -2)
+  endShape();
 
 }
 
