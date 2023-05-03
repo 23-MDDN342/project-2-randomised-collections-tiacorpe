@@ -16,7 +16,7 @@
 
 // MY CODE //
 ///////// MASK /////////
-function faceMask(brow_value ,eye_value, mouth_value) {
+function faceMask(brow_value ,eye_value, mouth_value, color_value) {
   // Vertex Variables
   // top left
   let x1 = -9.5
@@ -46,9 +46,32 @@ function faceMask(brow_value ,eye_value, mouth_value) {
   let angle_X2 = 4
   let angle_Y2 = 8
 
-  // Mask Curve(s)
+  // Mask Curve(s) & Colour Variable
   let gold = color(255, 196, 0);
-  fill(gold);
+  let blue = color(0, 149, 255);
+  let red = color(255, 38, 0);
+  let green = color (0, 207, 14);
+
+  // Color #1
+  // if(color_value == 1){
+    fill(gold);
+  // }
+
+  // Color #2
+  if(color_value == 2){
+    fill(blue);
+  }
+
+  // Color #3
+  if(color_value == 3){
+    fill(red);
+  }
+
+  // Color #4
+  if(color_value == 4){
+    fill(green);
+  }
+
   noStroke();
 
   beginShape();
@@ -82,95 +105,201 @@ function faceMask(brow_value ,eye_value, mouth_value) {
   endShape();
 
 ///////// EYEBROWS /////////
-  fill(0);
-  strokeWeight(0.25);
-
   // Brow #1
-  beginShape();
-  vertex(1, -6);
-  bezierVertex(2, -3, 6, -8, 8, -5);
-  bezierVertex(6, -7, 2, -2.5, 1, -6);
-  endShape();
+  if(brow_value == 1){
+    fill(0);
+    strokeWeight(0.25);
+    beginShape();
+    vertex(1, -7);
+    bezierVertex(2, -3, 6, -8, 8, -5);
+    bezierVertex(6, -7, 2, -2.5, 1, -7);
+    endShape();
 
-  beginShape();
-  vertex(-1, -6);
-  bezierVertex(-2, -3, -6, -8, -8, -5);
-  bezierVertex(-6, -7, -2, -2.5, -1, -6);
-  endShape();
+    beginShape();
+    vertex(-1, -7);
+    bezierVertex(-2, -3, -6, -8, -8, -5);
+    bezierVertex(-6, -7, -2, -2.5, -1, -7);
+    endShape();
+  }
+
+  // Brow #2
+  // if(brow_value == 2){
+    let inner_browY = -1
+    let outer_browY = 2
+
+    fill(0);
+    strokeWeight(0.25);
+    beginShape();
+    vertex(1, (inner_browY -6));
+    bezierVertex(2, (inner_browY -3), 6, (outer_browY -8), 8, (outer_browY -5));
+    bezierVertex(6, (outer_browY -7), 2, (inner_browY -2.5), 1, (inner_browY -6));
+    endShape();
+
+    beginShape();
+    vertex(-1, (inner_browY -6));
+    bezierVertex(-2, (inner_browY -3), -6, (outer_browY -8), -8, (outer_browY -5));
+    bezierVertex(-6, (outer_browY -7), -2, (inner_browY -2.5), -1, (inner_browY -6));
+    endShape();
+  // }
+
 
 ///////// EYES /////////
-  let eyeWidthX = -1.75
-
-  fill(0);
-  strokeWeight(0.25);
-
   // Eye #1
-  beginShape();
-  vertex(-1.75, -2.25);
-  bezierVertex(-4, -4, -5, -4, -6.75, -2);
-  bezierVertex(-5, -2.5, -4, -2.5, -1.75, -2.25);
-  endShape();
+  if(eye_value == 1){
+    fill(0);
+    strokeWeight(0.25);
 
-  beginShape();
-  vertex(1.75, -2.25);
-  bezierVertex(4, -4, 5, -4, 6.75, -2);
-  bezierVertex(5, -2.5, 4, -2.5, 1.75, -2.25);
-  endShape();
+    beginShape();
+    vertex(-1.75, -2.25);
+    bezierVertex(-4, -4, -5, -4, -6.75, -2);
+    bezierVertex(-5, -2.5, -4, -2.5, -1.75, -2.25);
+    endShape();
 
+    beginShape();
+    vertex(1.75, -2.25);
+    bezierVertex(4, -4, 5, -4, 6.75, -2);
+    bezierVertex(5, -2.5, 4, -2.5, 1.75, -2.25);
+    endShape();
+  }
+
+  // if(eye_value == 2){
+    let inner_eyeY = -0.5
+    let outer_eyeY = 0.5
+    let upper_eyeY = -0.1
+    let lower_eyeY = 0
+
+    fill(0);
+    strokeWeight(0.25);
+
+    beginShape();
+
+    vertex(-1.75, (inner_eyeY -2.25));
+    bezierVertex(-4, (upper_eyeY -4), -5, (upper_eyeY -4), -6.75, outer_eyeY-2);
+    bezierVertex(-5, (lower_eyeY -2.5), -4, (lower_eyeY -2.5), -1.75, inner_eyeY-2.25);
+    
+    endShape();
+
+    beginShape();
+    
+    vertex(1.75, (inner_eyeY -2.25));
+    bezierVertex(4, (upper_eyeY -4), 5, (upper_eyeY -4), 6.75, (outer_eyeY -2));
+    bezierVertex(5, (lower_eyeY -2.5), 4, (lower_eyeY -2.5), 1.75, (inner_eyeY -2.25));
+    
+    endShape();
+  // }
 
 ///////// MOUTHS /////////
-  fill(0);
-  // strokeWeight(0.25); 
-  noStroke();
-
   // Mouth #1
-  beginShape();
-  vertex(-4, 3);
-  bezierVertex(0, 4, 0, 4, 4, 3);
-  bezierVertex(0, 9, 0, 9, -4, 3);
-  endShape();
+  if(mouth_value == 1){
+    fill(0);
+    noStroke(0);
+
+    // Mouth
+    beginShape();
+    vertex(-4, 3);
+    bezierVertex(0, 4, 0, 4, 4, 3);
+    bezierVertex(0, 9, 0, 9, -4, 3);
+    endShape();
+
+    // Smile Lines
+    beginShape();
+    vertex(3, 2.5);
+    bezierVertex(5, 2, 5, 3.5, 4, 4.5);
+    bezierVertex(4.5, 3.5, 4.5, 2.25, 3, 2.5);
+    endShape();
+
+    beginShape();
+    vertex(-3, 2.5);
+    bezierVertex(-5, 2, -5, 3.5, -4, 4.5);
+    bezierVertex(-4.5, 3.5, -4.5, 2.25, -3, 2.5);
+    endShape();
+  }
+
+  // if(mouth_value == 2){
+    let cornerX = 0
+    let cornerY = 0
+    let upperLip = 0
+    let lowerLip = 0
+
+    fill(0);
+    noStroke(0);
+    
+    // Mouth
+    beginShape();
+
+    vertex(-(cornerX +4), (cornerY +3));
+    bezierVertex(0, (upperLip +4), 0, (upperLip +4), (cornerX +4), (cornerY +3));
+    bezierVertex(0, (lowerLip +9), 0, (lowerLip +9), -(cornerX +4), (cornerY +3));
+
+    endShape();
+    
+    // Smile Lines
+    beginShape();
+
+    vertex(3, 2.5);
+    bezierVertex(5, (cornerY +2.25), 5, (cornerY +3.5), 4, (cornerY +4.5));
+    bezierVertex(4.5, (cornerY +3.5), 4.5, (cornerY +2.25), 3, 2.5);
+
+    endShape();
+
+    beginShape();
+
+    vertex(-3, 2.5);
+    bezierVertex(-5, (cornerY +2.25), -5, (cornerY +3.5), -4, (cornerY +4.5));
+    bezierVertex(-4.5, (cornerY +3.5), -4.5, (cornerY +2.25), -3, 2.5);
+
+    endShape();
+  // }
 
 }
+
+// Sad Face
+
+// Happy Face
+
+// Angry Face
+
+// Shocked Face
 
 
 ///// EXAMPLE CODE /////
-function orangeAlienFace(tilt_value, eye_value, mouth_value) {
-  const bg_color3 = [71, 222, 219];
-  const fg_color3 = [255, 93, 35];
+// function orangeAlienFace(tilt_value, eye_value, mouth_value) {
+//   const bg_color3 = [71, 222, 219];
+//   const fg_color3 = [255, 93, 35];
 
-  let headSize = 20
-  let eyeSize = 5;
-  let centerX = 0;
-  let Iy = -4
-  let distactBetweenEyes = 5
-  let MouthDrop = 7
+//   let headSize = 20
+//   let eyeSize = 5;
+//   let centerX = 0;
+//   let Iy = -4
+//   let distactBetweenEyes = 5
+//   let MouthDrop = 7
   
-  // rotation in degrees
-  angleMode(DEGREES);
-  rotate(tilt_value);
+//   // rotation in degrees
+//   angleMode(DEGREES);
+//   rotate(tilt_value);
 
- // head
-  noStroke();
-  fill(fg_color3);
-  ellipse(centerX, 0, headSize, headSize);
+//  // head
+//   noStroke();
+//   fill(fg_color3);
+//   ellipse(centerX, 0, headSize, headSize);
 
-  // 2 traditonal eyes
-  if (eye_value === 1 || eye_value == 3) {
-    fill(bg_color3);
-    ellipse(centerX, Iy, eyeSize-1,eyeSize);
+//   // 2 traditonal eyes
+//   if (eye_value === 1 || eye_value == 3) {
+//     fill(bg_color3);
+//     ellipse(centerX, Iy, eyeSize-1,eyeSize);
    
-  }
-// middle eye
-  if (eye_value >= 2) {
-    fill(bg_color3);
-    ellipse(centerX - distactBetweenEyes, Iy, eyeSize);
-    ellipse(centerX + distactBetweenEyes, Iy, eyeSize );
-  }
+//   }
+// // middle eye
+//   if (eye_value >= 2) {
+//     fill(bg_color3);
+//     ellipse(centerX - distactBetweenEyes, Iy, eyeSize);
+//     ellipse(centerX + distactBetweenEyes, Iy, eyeSize );
+//   }
 
-  // mouth
-  fill(bg_color3);
-  ellipse(centerX, Iy + MouthDrop, distactBetweenEyes, mouth_value);
-}
+//   // mouth
+//   fill(bg_color3);
+//   ellipse(centerX, Iy + MouthDrop, distactBetweenEyes, mouth_value);
+// }
 
 /*
  * thinness_value ranges from 0-100 and indicates how thin the face is

@@ -3,8 +3,6 @@
 ## 2023 MDDN342 Assignment 2: Randomised Collections
 **This is where you talk about your project!**
 
-Did further work on the facial elements including the eyebrows, eyes, nose, and mouth. The nose, at this stage, will remain the same throughout and I plan to make at least 4 variations of the other facial elements. Additionally, 4 variations of the mask colour as well - I may also add a two-tone colour to the face but I'm not sure if each side of colour would change independently or not. Other tasks I completed:
-- Adjusted coordinates so the mask is within the bounds of the target area.
-- Edited slider settings (very little).
+Changed up my code a little bit and implimented more variables so that I can use the sliders. Intially I was just going to have set facial features, but moving forward it makes more sense to have them change with the sliders - it's easier and creates more interesting variations. I'm going to save the variable values for different facial expressions though (happy, sad, mad, etc), in case I want to use this later.
 
-Am a little behind but otherwise trucking along steadily.
+I've broken my arrangement code a little bit so I need to make more tweaks (though I'm more likely to start that from scratch). Overall happy with how things are going. Still behind but switching to the sliders will definately help things speed up; I just need to set limits.

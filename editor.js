@@ -16,10 +16,10 @@ function setup () {
   main_canvas.parent('canvasContainer');
 
   // create sliders
-  slider1 = createSlider(0, 100, 50);
-  slider2 = createSlider(0, 100, 50);
-  slider3 = createSlider(0, 100, 50);
-  slider4 = createSlider(0, 100, 50);
+  slider1 = createSlider(1, 4, 1);
+  slider2 = createSlider(1, 4, 1);
+  slider3 = createSlider(1, 4, 1);
+  slider4 = createSlider(1, 4, 1);
 
   slider1.parent('slider1Container');
   slider2.parent('slider2Container');
@@ -34,8 +34,6 @@ function setup () {
   faceSelector.value('My Code');
   faceSelector.parent('selector1Container');
 }
-
-
 
 function draw () {
   strokeWeight(0.2);
@@ -57,6 +55,11 @@ function draw () {
   let face_y = height / 2;
   let face_x = width / 2;
 
+  // let brow_value = int(map(s1, 0, 100, 1, 4));
+  // let eye_value = int(map(s2, 0, 100, 1, 4));
+  // let mouth_value = int(map(s3, 0, 100, 1, 4));
+  // let color_value = int(map(s4, 0, 100, 1, 4));
+
   push();
   translate(face_x, face_y);
   scale(face_scale);
@@ -77,6 +80,7 @@ function draw () {
   if (mode == '3') {
     simplePurpleFace();
   }
+  
   if (mode == 'My Code') {
     faceMask();
   }
