@@ -14,57 +14,120 @@
  * mouth_value is how open the mouth is and should generally range from 0.5 to 10
  */
 
-///// MY CODE /////
-function faceMask() {
-  noFill();
-  stroke(255);
-  strokeWeight(1);
+// MY CODE //
+///////// MASK /////////
+function faceMask(brow_value ,eye_value, mouth_value) {
+  // Vertex Variables
   // top left
-  let x1 = -10
-  let y1 = -10
+  let x1 = -9.5
+  let y1 = -9.5
   // top right
-  let x2 = 10
-  let y2 = -10
-  // bottom left
-  let x3 = -9
-  let y3 = 2.5
+  let x2 = 9.5
+  let y2 = -9.5
+  // bottom right
+  let x3 = 9
+  let y3 = 1
   // bottom middle
   let x4 = 0
-  let y4 = 10
-  // bottom right
-  let x5 = 9
-  let y5 = 2.5
+  let y4 = 9.5
+  // bottom left
+  let x5 = -9
+  let y5 = 1
 
-  // Reference Points (DELETE LATER)
-  point(x1, y1); // top left
-  point(x2, y2); // top right
-  point(x3, y3); // bottom left
-  point(x4, y4); // bottom middle
-  point(x5, y5); // bottom right
-  point(0, 0); // centre
+  // Variables for the upper, vertical sides of the mask/face.
+  let vert_X = 9
+  let vert_Y1 = 1
+  let vert_Y2 = 1
+
+  // Variables for the lower, angled sides of the mask/face.
+  let angle_X1 = 8
+  let angle_Y1 = 9.5
+
+  let angle_X2 = 4
+  let angle_Y2 = 8
 
   // Mask Curve(s)
+  let gold = color(255, 196, 0);
+  fill(gold);
+  noStroke();
+
   beginShape();
-  vertex(-10, -10);
-  bezierVertex(0, -8, 0, -8, x2, y2); // TLeft to TRight
-  bezierVertex(x5, 1, x5, 1.75, x5, y5); // TRight to BRight *
-  bezierVertex(2, 10, 4, 10, x4, y4); // BRight to BMiddle %
-  bezierVertex(-2, 10, -4, 10, x3, y3); // BMiddle to BLeft %
-  bezierVertex(x1, 1, x1, 1.75, x1, y1); // BLeft to TLeft *
+  vertex(x1, y1);
+  bezierVertex(0, -8, 0, -8, x2, y2); // TLeft->TRight
+  bezierVertex(vert_X, vert_Y1, vert_X, vert_Y2, x3, y3); // TRight->BRight *
+  bezierVertex(angle_X1, angle_Y1, angle_X2, angle_Y2, x4, y4); // BRight->BMiddle %
+
+  // Variables are 'backwards' + negative, as it's traveling up the opposite side of the face.
+  bezierVertex(-angle_X2, angle_Y2, -angle_X1, angle_Y1, x5, y5); // BMiddle->BLeft %
+  bezierVertex(-vert_X, vert_Y2, -vert_X, vert_Y1, x1, y1); // BLeft->TLeft *
   endShape();
 
-  // Eye(s)
+///////// NOSE /////////
+  let noseCurve = 1.15
+  let noseEnd = 2.25
+  let noseEnd_height = 0.65
+
+  noFill();
+  stroke(0);
   strokeWeight(0.5);
+
   beginShape();
-  vertex(1, -2);
-  bezierVertex(2, -7, 6, -7, 8, -7);
-  bezierVertex(4, -5, 2, -5, 1, -2)
+  vertex(0, 1); 
+  bezierVertex(-noseCurve , 1, -noseCurve, 0, -noseEnd, noseEnd_height);
   endShape();
 
   beginShape();
-  vertex(-1, -2);
-  bezierVertex(-2, -7, -6, -7, -8, -7);
-  bezierVertex(-4, -5, -2, -5, -1, -2)
+  vertex(0, 1); 
+  bezierVertex(noseCurve , 1, noseCurve, 0, noseEnd, noseEnd_height);
+  endShape();
+
+///////// EYEBROWS /////////
+  fill(0);
+  strokeWeight(0.25);
+
+  // Brow #1
+  beginShape();
+  vertex(1, -6);
+  bezierVertex(2, -3, 6, -8, 8, -5);
+  bezierVertex(6, -7, 2, -2.5, 1, -6);
+  endShape();
+
+  beginShape();
+  vertex(-1, -6);
+  bezierVertex(-2, -3, -6, -8, -8, -5);
+  bezierVertex(-6, -7, -2, -2.5, -1, -6);
+  endShape();
+
+///////// EYES /////////
+  let eyeWidthX = -1.75
+
+  fill(0);
+  strokeWeight(0.25);
+
+  // Eye #1
+  beginShape();
+  vertex(-1.75, -2.25);
+  bezierVertex(-4, -4, -5, -4, -6.75, -2);
+  bezierVertex(-5, -2.5, -4, -2.5, -1.75, -2.25);
+  endShape();
+
+  beginShape();
+  vertex(1.75, -2.25);
+  bezierVertex(4, -4, 5, -4, 6.75, -2);
+  bezierVertex(5, -2.5, 4, -2.5, 1.75, -2.25);
+  endShape();
+
+
+///////// MOUTHS /////////
+  fill(0);
+  // strokeWeight(0.25); 
+  noStroke();
+
+  // Mouth #1
+  beginShape();
+  vertex(-4, 3);
+  bezierVertex(0, 4, 0, 4, 4, 3);
+  bezierVertex(0, 9, 0, 9, -4, 3);
   endShape();
 
 }
@@ -107,18 +170,6 @@ function orangeAlienFace(tilt_value, eye_value, mouth_value) {
   // mouth
   fill(bg_color3);
   ellipse(centerX, Iy + MouthDrop, distactBetweenEyes, mouth_value);
-}
-
-
-function simplePurpleFace() {
-  fill(234, 122, 244);
-  noStroke();
-  // head
-  ellipse(0, 0, 20);
-  // eyes
-  fill(255, 217, 114);
-  ellipse(-3, -3, 3);
-  ellipse( 3, -3, 3);
 }
 
 /*

@@ -3,4 +3,8 @@
 ## 2023 MDDN342 Assignment 2: Randomised Collections
 **This is where you talk about your project!**
 
-Didn't do much over the break but some of the last stuff that I worked on was further experimenting with the type of shape I wanted to use to get the curves. Here I'm using bezierVertex(); I'm pretty happ with how easy this one is to use so I did further experiennts with an eye shape. I like how dramatic they look so I think I'll continue to use bezierVertex() for most (if not all) of the facial features.
+Did further work on the facial elements including the eyebrows, eyes, nose, and mouth. The nose, at this stage, will remain the same throughout and I plan to make at least 4 variations of the other facial elements. Additionally, 4 variations of the mask colour as well - I may also add a two-tone colour to the face but I'm not sure if each side of colour would change independently or not. Other tasks I completed:
+- Adjusted coordinates so the mask is within the bounds of the target area.
+- Edited slider settings (very little).
+
+Am a little behind but otherwise trucking along steadily.
