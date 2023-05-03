@@ -67,12 +67,12 @@ function draw () {
   push();
   if (mode == '1') {
    // draw face using values mapped from 3 sliders
-   let brow_value = map(s1, 0, 100, 1, 4);
-   let eye_value = int(map(s3, 0, 100, 1, 4));
-   let mouth_value = map(s2, 0, 100, 1, 4);
-   faceMask(brow_value, eye_value, mouth_value);
+   let tilt_value = map(s1, 0, 100, -90, 90);
+   let mouth_value = map(s2, 0, 100, 0.5, 10);
+   let eye_value = int(map(s3, 0, 100, 1, 3));
+   orangeAlienFace(tilt_value, eye_value, mouth_value);
   }
-
+  
   if (mode == '2') {
      // let slider value 1 indicate thinness
      blockyFace(s1);

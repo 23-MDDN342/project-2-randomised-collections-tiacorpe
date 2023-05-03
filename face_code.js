@@ -105,162 +105,112 @@ function faceMask(brow_value ,eye_value, mouth_value, color_value) {
   endShape();
 
 ///////// EYEBROWS /////////
-  // Brow #1
-  if(brow_value == 1){
-    fill(0);
-    strokeWeight(0.25);
-    beginShape();
-    vertex(1, -7);
-    bezierVertex(2, -3, 6, -8, 8, -5);
-    bezierVertex(6, -7, 2, -2.5, 1, -7);
-    endShape();
+  let inner_browY = -1 // -1 - 1
+  let outer_browY = 1 // 0 - 2
 
-    beginShape();
-    vertex(-1, -7);
-    bezierVertex(-2, -3, -6, -8, -8, -5);
-    bezierVertex(-6, -7, -2, -2.5, -1, -7);
-    endShape();
-  }
+  fill(0);
+  strokeWeight(0.25);
+  beginShape();
+  vertex(1, (inner_browY -6));
+  bezierVertex(2, (inner_browY -3), 6, (outer_browY -8), 8, (outer_browY -5));
+  bezierVertex(6, (outer_browY -7), 2, (inner_browY -2.5), 1, (inner_browY -6));
+  endShape();
 
-  // Brow #2
-  // if(brow_value == 2){
-    let inner_browY = -1
-    let outer_browY = 2
-
-    fill(0);
-    strokeWeight(0.25);
-    beginShape();
-    vertex(1, (inner_browY -6));
-    bezierVertex(2, (inner_browY -3), 6, (outer_browY -8), 8, (outer_browY -5));
-    bezierVertex(6, (outer_browY -7), 2, (inner_browY -2.5), 1, (inner_browY -6));
-    endShape();
-
-    beginShape();
-    vertex(-1, (inner_browY -6));
-    bezierVertex(-2, (inner_browY -3), -6, (outer_browY -8), -8, (outer_browY -5));
-    bezierVertex(-6, (outer_browY -7), -2, (inner_browY -2.5), -1, (inner_browY -6));
-    endShape();
-  // }
+  beginShape();
+  vertex(-1, (inner_browY -6));
+  bezierVertex(-2, (inner_browY -3), -6, (outer_browY -8), -8, (outer_browY -5));
+  bezierVertex(-6, (outer_browY -7), -2, (inner_browY -2.5), -1, (inner_browY -6));
+  endShape();
 
 
 ///////// EYES /////////
-  // Eye #1
-  if(eye_value == 1){
-    fill(0);
-    strokeWeight(0.25);
+  let inner_eyeY = 0 // -0.5 - 0.5
+  let outer_eyeY = -0.5 //  - 0.5 - 0
+  let upper_eyeY = -0.5 // -0.5 - 0.5
+  let lower_eyeY = 1.5 // -1.5 - 1.5
 
-    beginShape();
-    vertex(-1.75, -2.25);
-    bezierVertex(-4, -4, -5, -4, -6.75, -2);
-    bezierVertex(-5, -2.5, -4, -2.5, -1.75, -2.25);
-    endShape();
+  fill(0);
+  strokeWeight(0.25);
 
-    beginShape();
-    vertex(1.75, -2.25);
-    bezierVertex(4, -4, 5, -4, 6.75, -2);
-    bezierVertex(5, -2.5, 4, -2.5, 1.75, -2.25);
-    endShape();
-  }
+  beginShape();
+  vertex(-1.75, (inner_eyeY -2.25));
+  bezierVertex(-4, (upper_eyeY -4), -5, (upper_eyeY -4), -6.75, outer_eyeY-2);
+  bezierVertex(-5, (lower_eyeY -2.5), -4, (lower_eyeY -2.5), -1.75, inner_eyeY-2.25);
+  endShape();
 
-  // if(eye_value == 2){
-    let inner_eyeY = -0.5
-    let outer_eyeY = 0.5
-    let upper_eyeY = -0.1
-    let lower_eyeY = 0
+  beginShape();
+  vertex(1.75, (inner_eyeY -2.25));
+  bezierVertex(4, (upper_eyeY -4), 5, (upper_eyeY -4), 6.75, (outer_eyeY -2));
+  bezierVertex(5, (lower_eyeY -2.5), 4, (lower_eyeY -2.5), 1.75, (inner_eyeY -2.25));
+  endShape();
 
-    fill(0);
-    strokeWeight(0.25);
+///////// MOUTH /////////
+  let cornerX = -0.5 // 0.5 - -1
+  let cornerY = 1 // 0 - 2
+  let upperLip = -2.5 // -2.5 - 0
+  let lowerLip = -3 // -5 - 0
 
-    beginShape();
+  fill(0);
+  noStroke(0);
+  
+  // Mouth
+  beginShape();
+  vertex(-(cornerX +4), (cornerY +3));
+  bezierVertex(0, (upperLip +4), 0, (upperLip +4), (cornerX +4), (cornerY +3));
+  bezierVertex(0, (lowerLip +9), 0, (lowerLip +9), -(cornerX +4), (cornerY +3));
+  endShape();
+  
+  // Smile Lines
+  beginShape();
+  vertex(3, 2.5);
+  bezierVertex((cornerX +5), (cornerY +2.25), (cornerX +5), (cornerY +3.5), (cornerX +4), (cornerY +4.5));
+  bezierVertex((cornerX +4.5), (cornerY +3.5), (cornerX +4.5), (cornerY +2.25), 3, 2.5);
+  endShape();
 
-    vertex(-1.75, (inner_eyeY -2.25));
-    bezierVertex(-4, (upper_eyeY -4), -5, (upper_eyeY -4), -6.75, outer_eyeY-2);
-    bezierVertex(-5, (lower_eyeY -2.5), -4, (lower_eyeY -2.5), -1.75, inner_eyeY-2.25);
-    
-    endShape();
-
-    beginShape();
-    
-    vertex(1.75, (inner_eyeY -2.25));
-    bezierVertex(4, (upper_eyeY -4), 5, (upper_eyeY -4), 6.75, (outer_eyeY -2));
-    bezierVertex(5, (lower_eyeY -2.5), 4, (lower_eyeY -2.5), 1.75, (inner_eyeY -2.25));
-    
-    endShape();
-  // }
-
-///////// MOUTHS /////////
-  // Mouth #1
-  if(mouth_value == 1){
-    fill(0);
-    noStroke(0);
-
-    // Mouth
-    beginShape();
-    vertex(-4, 3);
-    bezierVertex(0, 4, 0, 4, 4, 3);
-    bezierVertex(0, 9, 0, 9, -4, 3);
-    endShape();
-
-    // Smile Lines
-    beginShape();
-    vertex(3, 2.5);
-    bezierVertex(5, 2, 5, 3.5, 4, 4.5);
-    bezierVertex(4.5, 3.5, 4.5, 2.25, 3, 2.5);
-    endShape();
-
-    beginShape();
-    vertex(-3, 2.5);
-    bezierVertex(-5, 2, -5, 3.5, -4, 4.5);
-    bezierVertex(-4.5, 3.5, -4.5, 2.25, -3, 2.5);
-    endShape();
-  }
-
-  // if(mouth_value == 2){
-    let cornerX = 0
-    let cornerY = 0
-    let upperLip = 0
-    let lowerLip = 0
-
-    fill(0);
-    noStroke(0);
-    
-    // Mouth
-    beginShape();
-
-    vertex(-(cornerX +4), (cornerY +3));
-    bezierVertex(0, (upperLip +4), 0, (upperLip +4), (cornerX +4), (cornerY +3));
-    bezierVertex(0, (lowerLip +9), 0, (lowerLip +9), -(cornerX +4), (cornerY +3));
-
-    endShape();
-    
-    // Smile Lines
-    beginShape();
-
-    vertex(3, 2.5);
-    bezierVertex(5, (cornerY +2.25), 5, (cornerY +3.5), 4, (cornerY +4.5));
-    bezierVertex(4.5, (cornerY +3.5), 4.5, (cornerY +2.25), 3, 2.5);
-
-    endShape();
-
-    beginShape();
-
-    vertex(-3, 2.5);
-    bezierVertex(-5, (cornerY +2.25), -5, (cornerY +3.5), -4, (cornerY +4.5));
-    bezierVertex(-4.5, (cornerY +3.5), -4.5, (cornerY +2.25), -3, 2.5);
-
-    endShape();
-  // }
+  beginShape();
+  vertex(-3, 2.5);
+  bezierVertex(-(cornerX +5), (cornerY +2.25), -(cornerX +5), (cornerY +3.5), -(cornerX +4), (cornerY +4.5));
+  bezierVertex(-(cornerX +4.5), (cornerY +3.5), -(cornerX +4.5), (cornerY +2.25), -3, 2.5);
+  endShape();
 
 }
+// Happy Face; set variables to default (0).
 
 // Sad Face
-
-// Happy Face
+  // let inner_browY = -1
+  // let outer_browY = 2
+  // let inner_eyeY = -0.5
+  // let outer_eyeY = 0.5
+  // let upper_eyeY = -0.1
+  // let lower_eyeY = 0
+  // let cornerX = 0
+  // let cornerY = 2
+  // let upperLip = -2
+  // let lowerLip = -5
 
 // Angry Face
+  // let inner_browY = 1
+  // let outer_browY = 0
+  // let inner_eyeY = -0.5
+  // let outer_eyeY = -1
+  // let upper_eyeY = -0.5 
+  // let lower_eyeY = 1 
+  // let cornerX = 0
+  // let cornerY = 2
+  // let upperLip = -2
+  // let lowerLip = -4.5
 
 // Shocked Face
-
+  // let inner_browY = -1
+  // let outer_browY = 1
+  // let inner_eyeY = 0
+  // let outer_eyeY = -0.5
+  // let upper_eyeY = -0.5
+  // let lower_eyeY = 1.5
+  // let cornerX = -0.5
+  // let cornerY = 1
+  // let upperLip = -2.5
+  // let lowerLip = -3
 
 ///// EXAMPLE CODE /////
 // function orangeAlienFace(tilt_value, eye_value, mouth_value) {

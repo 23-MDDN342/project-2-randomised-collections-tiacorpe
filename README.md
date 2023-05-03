@@ -3,6 +3,7 @@
 ## 2023 MDDN342 Assignment 2: Randomised Collections
 **This is where you talk about your project!**
 
-Changed up my code a little bit and implimented more variables so that I can use the sliders. Intially I was just going to have set facial features, but moving forward it makes more sense to have them change with the sliders - it's easier and creates more interesting variations. I'm going to save the variable values for different facial expressions though (happy, sad, mad, etc), in case I want to use this later.
-
-I've broken my arrangement code a little bit so I need to make more tweaks (though I'm more likely to start that from scratch). Overall happy with how things are going. Still behind but switching to the sliders will definately help things speed up; I just need to set limits.
+Further refined the slider variables and figured out the limits of each; now onto implimenting this code into the sliders and the arrangment, as well as sorting out the colour changing variable. Hopefully if there's time I would like to try the following:
+- Two colours at once (each one half of the face).
+- Change nose.
+- Add further details to face.
