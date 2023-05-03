@@ -3,7 +3,4 @@
 ## 2023 MDDN342 Assignment 2: Randomised Collections
 **This is where you talk about your project!**
 
-Further refined the slider variables and figured out the limits of each; now onto implimenting this code into the sliders and the arrangment, as well as sorting out the colour changing variable. Hopefully if there's time I would like to try the following:
-- Two colours at once (each one half of the face).
-- Change nose.
-- Add further details to face.
+Having some trouble with getting the sliders to work, although the step of the sliders was in integers (by default I assume) so I changed it to '0' since I'm using decimals. This fixed the slide itself but didn't help with the funtionality (or lack there of).

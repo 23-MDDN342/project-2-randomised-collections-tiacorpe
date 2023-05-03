@@ -7,16 +7,22 @@
  * These functions are used by your final arrangement of faces as well as the face editor.
  */
 
-
-/*
- * tilt_value is in degrees
- * eye_value is an integer number of eyes: either 0, 1, 2, or 3
- * mouth_value is how open the mouth is and should generally range from 0.5 to 10
- */
+///////// MY NEST OF VALUES /////////
+// eyeBHead_value
+// eyeBEnd_value
+// eyeInner_value
+// eyeOuter_value
+// upperEye_value
+// lowerEye_value
+// mouthWidth_value
+// mouthCorners_value
+// upperLip_value
+// lowerLip_value
+// color_value
 
 // MY CODE //
 ///////// MASK /////////
-function faceMask(brow_value ,eye_value, mouth_value, color_value) {
+function faceMask(eyeBHead_value, eyeBEnd_value, eyeInner_value, eyeOuter_value, upperEye_value, lowerEye_value, mouthWidth_value, mouthCorners_value, upperLip_value, lowerLip_value, color_value) {
   // Vertex Variables
   // top left
   let x1 = -9.5
@@ -58,19 +64,19 @@ function faceMask(brow_value ,eye_value, mouth_value, color_value) {
   // }
 
   // Color #2
-  if(color_value == 2){
+  // if(color_value == 2){
     fill(blue);
-  }
+  // }
 
   // Color #3
-  if(color_value == 3){
+  // if(color_value == 3){
     fill(red);
-  }
+  // }
 
   // Color #4
-  if(color_value == 4){
+  // if(color_value == 4){
     fill(green);
-  }
+  // }
 
   noStroke();
 
@@ -105,8 +111,10 @@ function faceMask(brow_value ,eye_value, mouth_value, color_value) {
   endShape();
 
 ///////// EYEBROWS /////////
-  let inner_browY = -1 // -1 - 1
-  let outer_browY = 1 // 0 - 2
+  // let inner_browY = -1 // -1 - 1
+  // let outer_browY = 1 // 0 - 2
+  let inner_browY = map(eyeBHead_value, 0, 100, -1, 1);
+  let outer_browY = map(eyeBEnd_value, 0, 100, 0, 2);
 
   fill(0);
   strokeWeight(0.25);
@@ -124,10 +132,15 @@ function faceMask(brow_value ,eye_value, mouth_value, color_value) {
 
 
 ///////// EYES /////////
-  let inner_eyeY = 0 // -0.5 - 0.5
-  let outer_eyeY = -0.5 //  - 0.5 - 0
-  let upper_eyeY = -0.5 // -0.5 - 0.5
-  let lower_eyeY = 1.5 // -1.5 - 1.5
+  // let inner_eyeY = 0 // -0.5 - 0.5
+  // let outer_eyeY = -0.5 //  - 0.5 - 0
+  // let upper_eyeY = -0.5 // -0.5 - 0.5
+  // let lower_eyeY = 1.5 // -1.5 - 1.5
+  let inner_eyeY = map(eyeInner_value, 0, 100, -0.5, 0.5);
+  let outer_eyeY = map(eyeOuter_value, 0, 100, -0.5, 0);
+  let upper_eyeY = map(upperEye_value, 0, 100, -0.5, 0.5);
+  let lower_eyeY = map(lowerEye_value, 0, 100, -1.5, 1.5);
+
 
   fill(0);
   strokeWeight(0.25);
@@ -145,10 +158,14 @@ function faceMask(brow_value ,eye_value, mouth_value, color_value) {
   endShape();
 
 ///////// MOUTH /////////
-  let cornerX = -0.5 // 0.5 - -1
-  let cornerY = 1 // 0 - 2
-  let upperLip = -2.5 // -2.5 - 0
-  let lowerLip = -3 // -5 - 0
+  // let cornerX = -0.5 // 0.5 - -1
+  // let cornerY = 1 // 0 - 2
+  // let upperLip = -2.5 // -2.5 - 0
+  // let lowerLip = -3 // -5 - 0
+  let cornerX = map(mouthWidth_value, 0, 100, -1, 0.5);
+  let cornerY = map(mouthCorners_value, 0, 100, 0, 2);
+  let upperLip = map(upperLip_value, 0, 100, -2.5, 0);
+  let lowerLip = map(lowerLip_value, 0, 100, -5, 0);
 
   fill(0);
   noStroke(0);
@@ -171,7 +188,7 @@ function faceMask(brow_value ,eye_value, mouth_value, color_value) {
   vertex(-3, 2.5);
   bezierVertex(-(cornerX +5), (cornerY +2.25), -(cornerX +5), (cornerY +3.5), -(cornerX +4), (cornerY +4.5));
   bezierVertex(-(cornerX +4.5), (cornerY +3.5), -(cornerX +4.5), (cornerY +2.25), -3, 2.5);
-  endShape();
+  endShape();   
 
 }
 // Happy Face; set variables to default (0).
