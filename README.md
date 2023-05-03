@@ -3,4 +3,6 @@
 ## 2023 MDDN342 Assignment 2: Randomised Collections
 **This is where you talk about your project!**
 
-Having some trouble with getting the sliders to work, although the step of the sliders was in integers (by default I assume) so I changed it to '0' since I'm using decimals. This fixed the slide itself but didn't help with the funtionality (or lack there of).
+I've selected a brown colour palette for the faces and background. Intially I was using classic colours that represent emotions (red, blue, yellow, green). However, since the facial elements will vary and non necessarily represent any one of those, I decided that a more ambiguous palette made sense.
+
+I'm still having trouble with the sliders. I suspect I've gone wrong in the face_code.js when I tried to impliment the different values with the variables (similarly to the thiness_value in the example code). Right now that's the main issue I need to sort out ASAP.

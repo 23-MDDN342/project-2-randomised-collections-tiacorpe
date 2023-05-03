@@ -53,30 +53,30 @@ function faceMask(eyeBHead_value, eyeBEnd_value, eyeInner_value, eyeOuter_value,
   let angle_Y2 = 8
 
   // Mask Curve(s) & Colour Variable
-  let gold = color(255, 196, 0);
-  let blue = color(0, 149, 255);
-  let red = color(255, 38, 0);
-  let green = color (0, 207, 14);
+  let happy = color(225, 193, 110);
+  let sad = color(205, 127, 50);
+  let mad = color(165, 42, 42);
+  let confused = color (234, 221, 202);
 
   // Color #1
-  // if(color_value == 1){
-    fill(gold);
-  // }
+  if(color_value == 1){
+    fill(happy);
+  }
 
   // Color #2
-  // if(color_value == 2){
-    fill(blue);
-  // }
+  if(color_value == 2){
+    fill(sad);
+  }
 
   // Color #3
-  // if(color_value == 3){
-    fill(red);
-  // }
+  if(color_value == 3){
+    fill(mad);
+  }
 
   // Color #4
-  // if(color_value == 4){
-    fill(green);
-  // }
+  if(color_value ==4){
+    fill(confused);
+  }
 
   noStroke();
 
@@ -230,43 +230,43 @@ function faceMask(eyeBHead_value, eyeBEnd_value, eyeInner_value, eyeOuter_value,
   // let lowerLip = -3
 
 ///// EXAMPLE CODE /////
-// function orangeAlienFace(tilt_value, eye_value, mouth_value) {
-//   const bg_color3 = [71, 222, 219];
-//   const fg_color3 = [255, 93, 35];
+function orangeAlienFace(tilt_value, eye_value, mouth_value) {
+  const bg_color3 = [71, 222, 219];
+  const fg_color3 = [255, 93, 35];
 
-//   let headSize = 20
-//   let eyeSize = 5;
-//   let centerX = 0;
-//   let Iy = -4
-//   let distactBetweenEyes = 5
-//   let MouthDrop = 7
+  let headSize = 20
+  let eyeSize = 5;
+  let centerX = 0;
+  let Iy = -4
+  let distactBetweenEyes = 5
+  let MouthDrop = 7
   
-//   // rotation in degrees
-//   angleMode(DEGREES);
-//   rotate(tilt_value);
+  // rotation in degrees
+  angleMode(DEGREES);
+  rotate(tilt_value);
 
-//  // head
-//   noStroke();
-//   fill(fg_color3);
-//   ellipse(centerX, 0, headSize, headSize);
+ // head
+  noStroke();
+  fill(fg_color3);
+  ellipse(centerX, 0, headSize, headSize);
 
-//   // 2 traditonal eyes
-//   if (eye_value === 1 || eye_value == 3) {
-//     fill(bg_color3);
-//     ellipse(centerX, Iy, eyeSize-1,eyeSize);
+  // 2 traditonal eyes
+  if (eye_value === 1 || eye_value == 3) {
+    fill(bg_color3);
+    ellipse(centerX, Iy, eyeSize-1,eyeSize);
    
-//   }
-// // middle eye
-//   if (eye_value >= 2) {
-//     fill(bg_color3);
-//     ellipse(centerX - distactBetweenEyes, Iy, eyeSize);
-//     ellipse(centerX + distactBetweenEyes, Iy, eyeSize );
-//   }
+  }
+// middle eye
+  if (eye_value >= 2) {
+    fill(bg_color3);
+    ellipse(centerX - distactBetweenEyes, Iy, eyeSize);
+    ellipse(centerX + distactBetweenEyes, Iy, eyeSize );
+  }
 
-//   // mouth
-//   fill(bg_color3);
-//   ellipse(centerX, Iy + MouthDrop, distactBetweenEyes, mouth_value);
-// }
+  // mouth
+  fill(bg_color3);
+  ellipse(centerX, Iy + MouthDrop, distactBetweenEyes, mouth_value);
+}
 
 /*
  * thinness_value ranges from 0-100 and indicates how thin the face is

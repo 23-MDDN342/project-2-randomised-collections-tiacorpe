@@ -54,22 +54,30 @@ function draw () {
       let x = w/2 + w*j;
      
         // center face
-        let eye_value = int(random(2,4));
-        let tilt_value = random(-45, 45);
-        let mouth_value = random(3,4);
-        let is_cyclops = random(0, 100);
+        let eyeBHead_value = random(-1,1);
+        let eyeBEnd_value = random(0, 2);
+        let eyeInner_value = random(-0.5, 0.5);
+        let eyeOuter_value = random(-0.5, 0);
+        let upperEye_value = random(-0.5, 0.5);
+        let lowerEye_value = random(-1.5, 1.5);
+        let mouthWidth_value = random(-1, 0.5);
+        let mouthCorners_value = random(0, 2);
+        let upperLip_value = random(-2.5, 0);
+        let lowerLip_value = random(-5, 0);
+        let color_value = random(1, 4);
 
-        if(is_cyclops < 10) {
-          eye_value = 1;
-          tilt_value = random(-5, 5);
-          mouth_value = random(0, 1.7);
-        }
+
+        // if(is_cyclops < 10) {
+        //   eye_value = 1;
+        //   tilt_value = random(-5, 5);
+        //   mouth_value = random(0, 1.7);
+        // }
 
         push();
         translate(x, y);
         scale(w/25, h/25);
         
-        orangeAlienFace(tilt_value, eye_value, mouth_value);
+        faceMask(eyeBHead_value, eyeBEnd_value, eyeInner_value, eyeOuter_value, upperEye_value, lowerEye_value, mouthWidth_value, mouthCorners_value, upperLip_value, lowerLip_value, color_value);
         pop();
       
     }

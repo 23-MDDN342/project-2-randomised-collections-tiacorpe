@@ -4,7 +4,7 @@
 
 const canvasWidth = 960;
 const canvasHeight = 500;
-const bg_color = [71, 222, 219];
+const bg_color = [245, 222, 179];
 let slider1, slider2, slider3, slider4, slider5;
 let slider6, slider7, slider8, slider9, slider10;
 let slider11;
@@ -30,7 +30,7 @@ function setup () {
   slider8 = createSlider(0, 2, 0, 0);
   slider9 = createSlider(-2.5, 0, 0, 0);
   slider10 = createSlider(-5, 0, 0, 0);
-  slider11 = createSlider(1, 4, 1, 0);
+  slider11 = createSlider(1, 4, 1);
   
 
   slider1.parent('slider1Container');
@@ -72,7 +72,7 @@ function draw () {
   let s8 = slider8.value();
   let s9 = slider9.value();
   let s10 = slider10.value();
-  let s11 = slider10.value();
+  let s11 = slider11.value();
  
   let show_face_guide = faceGuideCheckbox.checked();
 
@@ -98,7 +98,7 @@ function draw () {
     let mouthCorners_value = map(s8, 0, 100, 0, 2);
     let upperLip_value = map(s9, 0, 100, -2.5, 0);
     let lowerLip_value = map(s10, 0, 100, -5, 0);
-    let color_value = map(s11, 0, 100, 1, 4);
+    let color_value = int(map(s11, 0, 100, 1, 4));
 
     faceMask(eyeBHead_value, eyeBEnd_value, eyeInner_value, eyeOuter_value, upperEye_value, lowerEye_value, mouthWidth_value, mouthCorners_value, upperLip_value, lowerLip_value, color_value)  
   }
