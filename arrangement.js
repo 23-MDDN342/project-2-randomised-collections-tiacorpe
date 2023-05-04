@@ -10,7 +10,8 @@ let lastSwapTime = 0;
 const millisPerSwap = 3000;
 
 // global variables for colors
-const bg_color1 = [71, 222, 219];
+const bg_color1 = [245, 213, 179];
+
 function setup () {
   // create the drawing canvas, save the canvas element
   let main_canvas = createCanvas(canvasWidth, canvasHeight);
@@ -26,8 +27,6 @@ function changeRandomSeed() {
   curRandomSeed = curRandomSeed + 1;
   lastSwapTime = millis();
 }
-
-
 
 function mouseClicked() {
   changeRandomSeed();
@@ -54,18 +53,17 @@ function draw () {
       let x = w/2 + w*j;
      
         // center face
-        let eyeBHead_value = random(-1,1);
-        let eyeBEnd_value = random(0, 2);
-        let eyeInner_value = random(-0.5, 0.5);
-        let eyeOuter_value = random(-0.5, 0);
-        let upperEye_value = random(-0.5, 0.5);
-        let lowerEye_value = random(-1.5, 1.5);
-        let mouthWidth_value = random(-1, 0.5);
-        let mouthCorners_value = random(0, 2);
-        let upperLip_value = random(-2.5, 0);
-        let lowerLip_value = random(-5, 0);
-        let color_value = random(1, 4);
-
+        let eyeBHead = random(-1,1);
+        let eyeBEnd = random(0, 2);
+        let eyeInner = random(-0.5, 0.5);
+        let eyeOuter = random(-0.5, 0);
+        let upperEye = random(-0.5, 0.5);
+        let lowerEye = random(-1.5, 1.5);
+        let mouthWidth = random(-1, 0.5);
+        let mouthCorners = random(0, 2);
+        let upperLip = random(-2.5, 0);
+        let lowerLip = random(-5, 0);
+        let tilt_value = random(-20, 20);
 
         // if(is_cyclops < 10) {
         //   eye_value = 1;
@@ -76,8 +74,9 @@ function draw () {
         push();
         translate(x, y);
         scale(w/25, h/25);
-        
-        faceMask(eyeBHead_value, eyeBEnd_value, eyeInner_value, eyeOuter_value, upperEye_value, lowerEye_value, mouthWidth_value, mouthCorners_value, upperLip_value, lowerLip_value, color_value);
+
+        let maskColor = int(random(0, 5));
+        faceMask(eyeBHead, eyeBEnd, eyeInner, eyeOuter, upperEye, lowerEye, mouthWidth, mouthCorners, upperLip, lowerLip, tilt_value, maskColor);
         pop();
       
     }

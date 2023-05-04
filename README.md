@@ -3,6 +3,6 @@
 ## 2023 MDDN342 Assignment 2: Randomised Collections
 **This is where you talk about your project!**
 
-I've selected a brown colour palette for the faces and background. Intially I was using classic colours that represent emotions (red, blue, yellow, green). However, since the facial elements will vary and non necessarily represent any one of those, I decided that a more ambiguous palette made sense.
+Adjusted the brown colour palette slightly and added another shade to the mix. I also managed to fix the bugs with the colour and all the sliders. I realised it was because I was declaring the values (in map()'s) several times across the documents - all I had to do in my code was adjust it so the variabel used was = to the value. That seemed to do the trick.
 
-I'm still having trouble with the sliders. I suspect I've gone wrong in the face_code.js when I tried to impliment the different values with the variables (similarly to the thiness_value in the example code). Right now that's the main issue I need to sort out ASAP.
+I added a tilt value in as well because I found the grid arrangement was looking quite boring. Though it's limited to -20, 20 so it doesn't overlap with any of the surrounding faces. Besides this I further cleaned up my code, and took out more of the example code that was already present.
