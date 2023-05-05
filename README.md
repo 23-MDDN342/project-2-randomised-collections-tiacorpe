@@ -3,4 +3,4 @@
 ## 2023 MDDN342 Assignment 2: Randomised Collections
 **This is where you talk about your project!**
 
-Went with a 5x2 arrangement grid; decided against just 3 mask as I quite like displaying more than that at once.
+Little experiment with Weighted Selection (spinner analogy). I chose to do this with the face colour, adjusting it so theres a 75% chance of getting the lighter colour. Kind of unintentially highlights issues of racism/colourism, in terms of preferred shades [of brown]. In reality the contast of the lighter shade better shows the facial features, so I chose that one.

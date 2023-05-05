@@ -63,7 +63,7 @@ function draw () {
         let upperLip = random(-2.5, 0);
         let lowerLip = random(-5, 0);
         let tilt_value = random(-20, 20);
-        let maskColor = int(random(0, 5));
+        // let maskColor = int(random(0, 5));
 
         // if(is_cyclops < 10) {
         //   eye_value = 1;
@@ -74,7 +74,22 @@ function draw () {
         push();
         translate(x, y);
         scale(7);
+
+        // Weighted Selection
+        let Spinner = random(0, 100);
+        let maskColor = 0;
+
+        if(Spinner > 25){
+          let maskColor = 0;
+        } 
+        else {
+          maskColor = int(random(1, 5));
+        }
+
+
         faceMask(eyeBHead, eyeBEnd, eyeInner, eyeOuter, upperEye, lowerEye, mouthWidth, mouthCorners, upperLip, lowerLip, tilt_value, maskColor);
+
+
         pop();
 
     }
