@@ -3,4 +3,21 @@
 ## 2023 MDDN342 Assignment 2: Randomised Collections
 **This is where you talk about your project!**
 
-Little experiment with Conditional Randomness. I just used a random variable to dictate the values of my facial features, e.g. variable < 50, all facial feature values = 0. I don't know if I'll use this one; I think I already have enough of the required parameters (1 discrete, 2 continuous), but if I do I think I'll do at least 2 conditional faces.
+Final README:
+This is the final product of my project 2 work. It has a number of continuous parameters that can be adjusted via the sliders, and controls a good amount of the facial deatures (the only constant is the face shape, nose, & chin) - with parameters also effecting others.
+
+The randomised section of this code is set up in a 5 x 3 grid/display, with a time & mouse click triggering the random change. In this section I also make use of Weighted Selection for the random colour change of the face masks itsself. Overall I'm really happy with how this turned out. I think the facial features look really good, and I'm happy that everything is working pretty smoothly.
+
+Parameters & (Limits):
+[continuous] eyeBHead (-1.5, 1)
+[continuous] eyeBEnd (0, 1.5)
+[continuous] eyeInner (-0.5, 0.5)
+[continuous] eyeOuter (-0.5, 0)
+[continuous] upperEye (-0.5, 0.5)
+[continuous] lowerEye (-1.5, 1.5)
+[continuous] mouthWidth (-1, 0.5)
+[continuous] mouthCorners (0, 2)
+[continuous] upperLip (-2.5, 0)
+[continuous] lowerLip (-4, 0)
+[continuous] tilt_value (-20, 20)
+[discrete] colorChoice (0, 4)

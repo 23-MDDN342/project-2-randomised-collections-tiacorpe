@@ -63,21 +63,6 @@ function draw () {
         let upperLip = random(-2.5, 0);
         let lowerLip = random(-5, 0);
         let tilt_value = random(-20, 20);
-        let happy = random(0, 100);
-
-        // Conditional Randomness
-        if(happy < 50) {
-          eyeBHead = 0;
-          eyeBEnd = 0;
-          eyeInner = 0;
-          eyeOuter = 0;
-          upperEye = 0;
-          lowerEye = 0;
-          mouthWidth = 0;
-          mouthCorners = 0;
-          upperLip = 0;
-          lowerLip = 0;
-        }
 
         push();
         translate(x, y);
