@@ -3,6 +3,6 @@
 ## 2023 MDDN342 Assignment 2: Randomised Collections
 **This is where you talk about your project!**
 
-Adjusted the brown colour palette slightly and added another shade to the mix. I also managed to fix the bugs with the colour and all the sliders. I realised it was because I was declaring the values (in map()'s) several times across the documents - all I had to do in my code was adjust it so the variabel used was = to the value. That seemed to do the trick.
+Cleaned up some more of the code and layered a secondary mask shape behind the main one, to create a black outline. I did experiment with the outline a little bit but found it hard to maintain a consistent sharpness to the corners with the beziervertex(). Also readjusted the chin detail further so it doesnt appear if boht the mouth corners and lower lip are too close to it. 
 
-I added a tilt value in as well because I found the grid arrangement was looking quite boring. Though it's limited to -20, 20 so it doesn't overlap with any of the surrounding faces. Besides this I further cleaned up my code, and took out more of the example code that was already present.
+Otherwise I'm finished with the face_code.js (spent longer on it with the 5% penalty; but am very happy with how it's looking).

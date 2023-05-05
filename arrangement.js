@@ -83,6 +83,44 @@ function draw () {
   }
 }
 
+// Happy Face; set variables to default (0).
+
+// Sad Face
+  // let inner_browY = -1
+  // let outer_browY = 2
+  // let inner_eyeY = -0.5
+  // let outer_eyeY = 0.5
+  // let upper_eyeY = -0.1
+  // let lower_eyeY = 0
+  // let cornerX = 0
+  // let cornerY = 2
+  // let upperLip = -2
+  // let lowerLip = -5
+
+// Angry Face
+  // let inner_browY = 1
+  // let outer_browY = 0
+  // let inner_eyeY = -0.5
+  // let outer_eyeY = -1
+  // let upper_eyeY = -0.5 
+  // let lower_eyeY = 1 
+  // let cornerX = 0
+  // let cornerY = 2
+  // let upperLip = -2
+  // let lowerLip = -4.5
+
+// Shocked Face
+  // let inner_browY = -1
+  // let outer_browY = 1
+  // let inner_eyeY = 0
+  // let outer_eyeY = -0.5
+  // let upper_eyeY = -0.5
+  // let lower_eyeY = 1.5
+  // let cornerX = -0.5
+  // let cornerY = 1
+  // let upperLip = -2.5
+  // let lowerLip = -3
+
 function keyTyped() {
   if (key == '!') {
     saveBlocksImages();

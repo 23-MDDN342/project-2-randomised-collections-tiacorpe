@@ -10,7 +10,51 @@
 ///////// MASK CODE /////////
 function faceMask(eyeBHead, eyeBEnd, eyeInner, eyeOuter, upperEye,  lowerEye, mouthWidth, mouthCorners, upperLip, lowerLip, tilt_value, color_value) 
 {
-  // Mask Curve(s) & Colour Variable
+  // Tilt Value
+  angleMode(DEGREES);
+  rotate(tilt_value);
+
+  // Mask Vertex Variables
+  // Top left
+    let x1 = -9.5;
+    let y1 = -9.5;
+  // Top right
+    let x2 = 9.5;
+    let y2 = -9.5;
+  // Bottom right
+    let x3 = 9;
+    let y3 = 1;
+  // Bottom middle
+    let x4 = 0;
+    let y4 = 9.5;
+  // Bottom left
+    let x5 = -9;
+    let y5 = 1;
+
+  // Variables for the upper, vertical sides of the mask/face.
+    let vert_X = 9;
+    let vert_Y1 = 1;
+    let vert_Y2 = 1;
+
+  // Variables for the lower, angled sides of the mask/face.
+    let angle_X1 = 8;
+    let angle_Y1 = 9.5;
+    let angle_X2 = 4;
+    let angle_Y2 = 8;
+
+  // Black Backing Mask
+  noStroke();
+  fill(0);
+  beginShape();
+    vertex((x1 -0.5), (y1 -0.5));
+      bezierVertex(0, -8.5, 0, -8.5, (x2 +0.5), (y2 -0.5)); // TLeft->TRight
+      bezierVertex((vert_X +0.5), vert_Y1, (vert_X +0.5), vert_Y2, (x3 +0.5), y3); // TRight->BRight *
+      bezierVertex((angle_X1 +0.5), angle_Y1, (angle_X2 +0.5), (angle_Y2 +0.5), x4, (y4 +0.5)); // BRight->BMiddle %
+      bezierVertex(-(angle_X2 +0.5), (angle_Y2 +0.5), -(angle_X1 +0.5), angle_Y1, (x5 -0.5), y5); // BMiddle->BLeft %
+      bezierVertex(-(vert_X +0.5), vert_Y2, -(vert_X +0.5), vert_Y1, (x1 -0.5), y1); // BLeft->TLeft *
+  endShape();
+
+  // Face Mask & Colour Variable
   let Brown_1 = color('#ffa257');
   let Brown_2 = color('#d17d38');
   let Brown_3 = color('#994f12');
@@ -21,43 +65,11 @@ function faceMask(eyeBHead, eyeBEnd, eyeInner, eyeOuter, upperEye,  lowerEye, mo
   noStroke();
   fill(colorOptions[color_value]);
 
-  angleMode(DEGREES);
-  rotate(tilt_value);
-
-  // Vertex Variables
-  // top left
-  let x1 = -9.5;
-  let y1 = -9.5;
-  // top right
-  let x2 = 9.5;
-  let y2 = -9.5;
-  // bottom right
-  let x3 = 9;
-  let y3 = 1;
-  // bottom middle
-  let x4 = 0;
-  let y4 = 9.5;
-  // bottom left
-  let x5 = -9;
-  let y5 = 1;
-
-  // Variables for the upper, vertical sides of the mask/face.
-  let vert_X = 9;
-  let vert_Y1 = 1;
-  let vert_Y2 = 1;
-
-  // Variables for the lower, angled sides of the mask/face.
-  let angle_X1 = 8;
-  let angle_Y1 = 9.5;
-  let angle_X2 = 4;
-  let angle_Y2 = 8;
-
   beginShape();
     vertex(x1, y1);
       bezierVertex(0, -8, 0, -8, x2, y2); // TLeft->TRight
       bezierVertex(vert_X, vert_Y1, vert_X, vert_Y2, x3, y3); // TRight->BRight *
       bezierVertex(angle_X1, angle_Y1, angle_X2, angle_Y2, x4, y4); // BRight->BMiddle %
-    // Variables are 'backwards' + negative, as it's traveling up the opposite side of the face.
       bezierVertex(-angle_X2, angle_Y2, -angle_X1, angle_Y1, x5, y5); // BMiddle->BLeft %
       bezierVertex(-vert_X, vert_Y2, -vert_X, vert_Y1, x1, y1); // BLeft->TLeft *
   endShape();
@@ -75,10 +87,17 @@ function faceMask(eyeBHead, eyeBEnd, eyeInner, eyeOuter, upperEye,  lowerEye, mo
   endShape();
 
   ///////// EYEBROWS /////////
+  // * Left to Right
   strokeWeight(0.25);
   fill(0);
   let inner_browY = eyeBHead;
   let outer_browY = eyeBEnd;
+
+  beginShape();
+    vertex(-1, (inner_browY -6));
+      bezierVertex(-2, (inner_browY -3), -6, (outer_browY -8), -8, (outer_browY -5));
+      bezierVertex(-6, (outer_browY -7), -2, (inner_browY -2.5), -1, (inner_browY -6));
+  endShape();
   
   beginShape();
     vertex(1, (inner_browY-6));
@@ -86,14 +105,9 @@ function faceMask(eyeBHead, eyeBEnd, eyeInner, eyeOuter, upperEye,  lowerEye, mo
       bezierVertex(6, (outer_browY -7), 2, (inner_browY -2.5), 1, (inner_browY -6));
   endShape();
 
-  beginShape();
-    vertex(-1, (inner_browY -6));
-      bezierVertex(-2, (inner_browY -3), -6, (outer_browY -8), -8, (outer_browY -5));
-      bezierVertex(-6, (outer_browY -7), -2, (inner_browY -2.5), -1, (inner_browY -6));
-  endShape();
-
 
   ///////// EYES /////////
+  // * Left to Right
   strokeWeight(0.25);
   fill(0);
   let inner_eyeY = eyeInner;
@@ -128,21 +142,33 @@ function faceMask(eyeBHead, eyeBEnd, eyeInner, eyeOuter, upperEye,  lowerEye, mo
       bezierVertex(0, (lowerL +9), 0, (lowerL +9), -(cornerX +4), (cornerY +3));
   endShape();
   
-  // Smile Lines
-  beginShape();
-    vertex(3, 2.5);
-      bezierVertex((cornerX +5), (cornerY +2.25), (cornerX +5), (cornerY +3.5), (cornerX +4), (cornerY +4.5));
-      bezierVertex((cornerX +4.5), (cornerY +3.5), (cornerX +4.5), (cornerY +2.25), 3, 2.5);
-  endShape();
-
+  // Smile Lines * Left to Right
   beginShape();
     vertex(-3, 2.5);
       bezierVertex(-(cornerX +5), (cornerY +2.25), -(cornerX +5), (cornerY +3.5), -(cornerX +4), (cornerY +4.5));
       bezierVertex(-(cornerX +4.5), (cornerY +3.5), -(cornerX +4.5), (cornerY +2.25), -3, 2.5);
   endShape();   
 
-  // Chin Detail * not drawn if lower lip is too far down.
-  if(lowerLip <= -1.9) {
+  beginShape();
+    vertex(3, 2.5);
+      bezierVertex((cornerX +5), (cornerY +2.25), (cornerX +5), (cornerY +3.5), (cornerX +4), (cornerY +4.5));
+      bezierVertex((cornerX +4.5), (cornerY +3.5), (cornerX +4.5), (cornerY +2.25), 3, 2.5);
+  endShape();
+
+  // Chin Detail * not drawn if lower lip/mouth corners are too far down.
+  if(mouthCorners == 2 && lowerLip <= -2.4){
+    noStroke(0);
+    fill(0);
+    let chinY = 6.5;
+
+    beginShape();
+      vertex(0, chinY); 
+        bezierVertex(0.6, (chinY +0.5), 0.6, (chinY +1), 0, (chinY +1.5));
+        bezierVertex(1, (chinY +1), 1, (chinY +0.5), 0, chinY);
+    endShape();
+  }
+
+  else if(mouthCorners <= 1.90 && lowerLip <= -1.6) {
     noStroke(0);
     fill(0);
     let chinY = 6.5;
@@ -154,45 +180,6 @@ function faceMask(eyeBHead, eyeBEnd, eyeInner, eyeOuter, upperEye,  lowerEye, mo
     endShape();
   }
 }
-
-
-// Happy Face; set variables to default (0).
-
-// Sad Face
-  // let inner_browY = -1
-  // let outer_browY = 2
-  // let inner_eyeY = -0.5
-  // let outer_eyeY = 0.5
-  // let upper_eyeY = -0.1
-  // let lower_eyeY = 0
-  // let cornerX = 0
-  // let cornerY = 2
-  // let upperLip = -2
-  // let lowerLip = -5
-
-// Angry Face
-  // let inner_browY = 1
-  // let outer_browY = 0
-  // let inner_eyeY = -0.5
-  // let outer_eyeY = -1
-  // let upper_eyeY = -0.5 
-  // let lower_eyeY = 1 
-  // let cornerX = 0
-  // let cornerY = 2
-  // let upperLip = -2
-  // let lowerLip = -4.5
-
-// Shocked Face
-  // let inner_browY = -1
-  // let outer_browY = 1
-  // let inner_eyeY = 0
-  // let outer_eyeY = -0.5
-  // let upper_eyeY = -0.5
-  // let lower_eyeY = 1.5
-  // let cornerX = -0.5
-  // let cornerY = 1
-  // let upperLip = -2.5
-  // let lowerLip = -3
 
 ///// EXAMPLE CODE /////
 function orangeAlienFace(tilt_value, eye_value, mouth_value) {
