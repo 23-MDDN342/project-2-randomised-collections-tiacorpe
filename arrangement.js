@@ -44,9 +44,8 @@ function draw () {
   background(bg_color1);
   noStroke();
 
-  // draw a 7x4 grid of faces
-  let w = canvasWidth / 7;
-  let h = canvasHeight / 4;
+  let w = canvasWidth / 5;
+  let h = canvasHeight / 2;
   for(let i=0; i<4; i++) {
     for(let j=0; j<7; j++) {
       let y = h/2 + h*i;
@@ -64,6 +63,7 @@ function draw () {
         let upperLip = random(-2.5, 0);
         let lowerLip = random(-5, 0);
         let tilt_value = random(-20, 20);
+        let maskColor = int(random(0, 5));
 
         // if(is_cyclops < 10) {
         //   eye_value = 1;
@@ -73,12 +73,10 @@ function draw () {
 
         push();
         translate(x, y);
-        scale(w/25, h/25);
-
-        let maskColor = int(random(0, 5));
+        scale(7);
         faceMask(eyeBHead, eyeBEnd, eyeInner, eyeOuter, upperEye, lowerEye, mouthWidth, mouthCorners, upperLip, lowerLip, tilt_value, maskColor);
         pop();
-      
+
     }
   }
 }

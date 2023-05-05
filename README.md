@@ -3,6 +3,4 @@
 ## 2023 MDDN342 Assignment 2: Randomised Collections
 **This is where you talk about your project!**
 
-Cleaned up some more of the code and layered a secondary mask shape behind the main one, to create a black outline. I did experiment with the outline a little bit but found it hard to maintain a consistent sharpness to the corners with the beziervertex(). Also readjusted the chin detail further so it doesnt appear if boht the mouth corners and lower lip are too close to it. 
-
-Otherwise I'm finished with the face_code.js (spent longer on it with the 5% penalty; but am very happy with how it's looking).
+Went with a 5x2 arrangement grid; decided against just 3 mask as I quite like displaying more than that at once.
