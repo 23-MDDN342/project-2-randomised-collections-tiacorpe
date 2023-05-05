@@ -63,13 +63,21 @@ function draw () {
         let upperLip = random(-2.5, 0);
         let lowerLip = random(-5, 0);
         let tilt_value = random(-20, 20);
-        // let maskColor = int(random(0, 5));
+        let happy = random(0, 100);
 
-        // if(is_cyclops < 10) {
-        //   eye_value = 1;
-        //   tilt_value = random(-5, 5);
-        //   mouth_value = random(0, 1.7);
-        // }
+        // Conditional Randomness
+        if(happy < 50) {
+          eyeBHead = 0;
+          eyeBEnd = 0;
+          eyeInner = 0;
+          eyeOuter = 0;
+          upperEye = 0;
+          lowerEye = 0;
+          mouthWidth = 0;
+          mouthCorners = 0;
+          upperLip = 0;
+          lowerLip = 0;
+        }
 
         push();
         translate(x, y);
@@ -86,9 +94,7 @@ function draw () {
           maskColor = int(random(1, 5));
         }
 
-
         faceMask(eyeBHead, eyeBEnd, eyeInner, eyeOuter, upperEye, lowerEye, mouthWidth, mouthCorners, upperLip, lowerLip, tilt_value, maskColor);
-
 
         pop();
 

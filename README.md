@@ -3,4 +3,4 @@
 ## 2023 MDDN342 Assignment 2: Randomised Collections
 **This is where you talk about your project!**
 
-Little experiment with Weighted Selection (spinner analogy). I chose to do this with the face colour, adjusting it so theres a 75% chance of getting the lighter colour. Kind of unintentially highlights issues of racism/colourism, in terms of preferred shades [of brown]. In reality the contast of the lighter shade better shows the facial features, so I chose that one.
+Little experiment with Conditional Randomness. I just used a random variable to dictate the values of my facial features, e.g. variable < 50, all facial feature values = 0. I don't know if I'll use this one; I think I already have enough of the required parameters (1 discrete, 2 continuous), but if I do I think I'll do at least 2 conditional faces.
