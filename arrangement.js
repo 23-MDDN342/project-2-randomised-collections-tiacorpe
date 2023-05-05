@@ -10,7 +10,8 @@ let lastSwapTime = 0;
 const millisPerSwap = 3000;
 
 // global variables for colors
-const bg_color1 = [71, 222, 219];
+const bg_color1 = [245, 213, 179];
+
 function setup () {
   // create the drawing canvas, save the canvas element
   let main_canvas = createCanvas(canvasWidth, canvasHeight);
@@ -26,8 +27,6 @@ function changeRandomSeed() {
   curRandomSeed = curRandomSeed + 1;
   lastSwapTime = millis();
 }
-
-
 
 function mouseClicked() {
   changeRandomSeed();
@@ -45,36 +44,86 @@ function draw () {
   background(bg_color1);
   noStroke();
 
-  // draw a 7x4 grid of faces
-  let w = canvasWidth / 7;
-  let h = canvasHeight / 4;
+  let w = canvasWidth / 5;
+  let h = canvasHeight / 2;
   for(let i=0; i<4; i++) {
     for(let j=0; j<7; j++) {
       let y = h/2 + h*i;
       let x = w/2 + w*j;
      
         // center face
-        let eye_value = int(random(2,4));
-        let tilt_value = random(-45, 45);
-        let mouth_value = random(3,4);
-        let is_cyclops = random(0, 100);
-
-        if(is_cyclops < 10) {
-          eye_value = 1;
-          tilt_value = random(-5, 5);
-          mouth_value = random(0, 1.7);
-        }
+        let eyeBHead = random(-1,1);
+        let eyeBEnd = random(0, 2);
+        let eyeInner = random(-0.5, 0.5);
+        let eyeOuter = random(-0.5, 0);
+        let upperEye = random(-0.5, 0.5);
+        let lowerEye = random(-1.5, 1.5);
+        let mouthWidth = random(-1, 0.5);
+        let mouthCorners = random(0, 2);
+        let upperLip = random(-2.5, 0);
+        let lowerLip = random(-5, 0);
+        let tilt_value = random(-20, 20);
 
         push();
         translate(x, y);
-        scale(w/25, h/25);
-        
-        orangeAlienFace(tilt_value, eye_value, mouth_value);
+        scale(7);
+
+        // Weighted Selection
+        let Spinner = random(0, 100);
+        let maskColor = 0;
+
+        if(Spinner > 25){
+          let maskColor = 0;
+        } 
+        else {
+          maskColor = int(random(1, 5));
+        }
+
+        faceMask(eyeBHead, eyeBEnd, eyeInner, eyeOuter, upperEye, lowerEye, mouthWidth, mouthCorners, upperLip, lowerLip, tilt_value, maskColor);
+
         pop();
-      
+
     }
   }
 }
+
+// Happy Face; set variables to default (0).
+
+// Sad Face
+  // let inner_browY = -1
+  // let outer_browY = 2
+  // let inner_eyeY = -0.5
+  // let outer_eyeY = 0.5
+  // let upper_eyeY = -0.1
+  // let lower_eyeY = 0
+  // let cornerX = 0
+  // let cornerY = 2
+  // let upperLip = -2
+  // let lowerLip = -5
+
+// Angry Face
+  // let inner_browY = 1
+  // let outer_browY = 0
+  // let inner_eyeY = -0.5
+  // let outer_eyeY = -1
+  // let upper_eyeY = -0.5 
+  // let lower_eyeY = 1 
+  // let cornerX = 0
+  // let cornerY = 2
+  // let upperLip = -2
+  // let lowerLip = -4.5
+
+// Shocked Face
+  // let inner_browY = -1
+  // let outer_browY = 1
+  // let inner_eyeY = 0
+  // let outer_eyeY = -0.5
+  // let upper_eyeY = -0.5
+  // let lower_eyeY = 1.5
+  // let cornerX = -0.5
+  // let cornerY = 1
+  // let upperLip = -2.5
+  // let lowerLip = -3
 
 function keyTyped() {
   if (key == '!') {
